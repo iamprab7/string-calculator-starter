@@ -2,31 +2,31 @@ package calculator;
 
 class StringCalculator {
 	
-    public int add(String input){
-		if(input.equals("")){
+	public static int add(String text){
+		if(text.equals("")){
 			return 0;
 		}
 		else{
 			String delimiter = ",";
-			if(input.matches("//(.*)\n(.*)")){
-				delimiter = Character.toString(input.charAt(2));
-				input = input.substring(4);
+			if(text.matches("//(.*)\n(.*)")){
+				delimiter = Character.toString(text.charAt(2));
+				text = text.substring(4);
 			}
 			
-			String numList[] = splitNumbers(input, delimiter + "|\n");
+			String numList[] = splitNumbers(text, delimiter + "|\n");
 			return sum(numList);
 		}
 	}
 
-	private int toInt(String number){
+	private static int toInt(String number){
 		return Integer.parseInt(number);
 	}
 
-	private String[] splitNumbers(String numbers, String divider){
+	private static String[] splitNumbers(String numbers, String divider){
 	    return numbers.split(divider);
 	}
 
-	private int sum(String[] numbers){
+	private static int sum(String[] numbers){
  	    int total = 0;
  	    String negString = "";
 
